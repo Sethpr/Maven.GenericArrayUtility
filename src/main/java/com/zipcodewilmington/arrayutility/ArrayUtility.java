@@ -2,7 +2,7 @@ package com.zipcodewilmington.arrayutility;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 /**
  * Created by leon on 3/6/18.
@@ -32,8 +32,23 @@ public class ArrayUtility<T> {
         return count;
     }
 
-    public <T> T getMostCommonFromMerge(Object[] arrayToMerge) {
-        return null;
+    public <E> E getMostCommonFromMerge(T[] arrayToMerge) {
+
+        for(T t: arrayToMerge){
+            array.add(t);
+        }
+        int max = 0;
+        E common = null;
+
+        for(T t: array){
+            if(getNumberOfOccurrences(t) > max){
+                max = getNumberOfOccurrences(t);
+                common = (E) t;
+            }
+        }
+
+
+        return common;
     }
 
     public Integer getNumberOfOccurrences(Object valueToEvaluate) {
